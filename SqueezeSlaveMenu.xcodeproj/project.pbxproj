@@ -17,25 +17,28 @@
 		A3C9D43E129347C800E2DF54 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A3C9D43D129347C800E2DF54 /* InfoPlist.strings */; };
 		A3C9D440129347C800E2DF54 /* SqueezeSlaveMenuTests.h in Resources */ = {isa = PBXBuildFile; fileRef = A3C9D43F129347C800E2DF54 /* SqueezeSlaveMenuTests.h */; };
 		A3C9D442129347C800E2DF54 /* SqueezeSlaveMenuTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C9D441129347C800E2DF54 /* SqueezeSlaveMenuTests.m */; };
+		A3C9D45112934C0D00E2DF54 /* SSSlave.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C9D45012934C0D00E2DF54 /* SSSlave.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A3C9D41E129347C800E2DF54 /* SqueezeSlaveMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SqueezeSlaveMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3C9D421129347C800E2DF54 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		A3C9D423129347C800E2DF54 /* SqueezeSlaveMenu-Info.plist */ = {isa = PBXFileReference; path = "SqueezeSlaveMenu-Info.plist"; sourceTree = "<group>"; };
-		A3C9D424129347C800E2DF54 /* SqueezeSlaveMenu-Prefix.pch */ = {isa = PBXFileReference; path = "SqueezeSlaveMenu-Prefix.pch"; sourceTree = "<group>"; };
+		A3C9D423129347C800E2DF54 /* SqueezeSlaveMenu-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SqueezeSlaveMenu-Info.plist"; sourceTree = "<group>"; };
+		A3C9D424129347C800E2DF54 /* SqueezeSlaveMenu-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SqueezeSlaveMenu-Prefix.pch"; sourceTree = "<group>"; };
 		A3C9D426129347C800E2DF54 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A3C9D428129347C800E2DF54 /* SqueezeSlaveMenu-main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SqueezeSlaveMenu-main.m"; sourceTree = "<group>"; };
 		A3C9D42B129347C800E2DF54 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		A3C9D42E129347C800E2DF54 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		A3C9D430129347C800E2DF54 /* SqueezeSlaveMenuAppDelegate.h */ = {isa = PBXFileReference; path = SqueezeSlaveMenuAppDelegate.h; sourceTree = "<group>"; };
+		A3C9D430129347C800E2DF54 /* SqueezeSlaveMenuAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SqueezeSlaveMenuAppDelegate.h; sourceTree = "<group>"; };
 		A3C9D431129347C800E2DF54 /* SqueezeSlaveMenuAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SqueezeSlaveMenuAppDelegate.m; sourceTree = "<group>"; };
 		A3C9D439129347C800E2DF54 /* SqueezeSlaveMenuTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SqueezeSlaveMenuTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A3C9D43B129347C800E2DF54 /* SqueezeSlaveMenuTests-Info.plist */ = {isa = PBXFileReference; path = "SqueezeSlaveMenuTests-Info.plist"; sourceTree = "<group>"; };
-		A3C9D43C129347C800E2DF54 /* SqueezeSlaveMenuTests-Prefix.pch */ = {isa = PBXFileReference; path = "SqueezeSlaveMenuTests-Prefix.pch"; sourceTree = "<group>"; };
+		A3C9D43B129347C800E2DF54 /* SqueezeSlaveMenuTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SqueezeSlaveMenuTests-Info.plist"; sourceTree = "<group>"; };
+		A3C9D43C129347C800E2DF54 /* SqueezeSlaveMenuTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SqueezeSlaveMenuTests-Prefix.pch"; sourceTree = "<group>"; };
 		A3C9D43D129347C800E2DF54 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = en.lproj/SqueezeSlaveMenuTests/InfoPlist.strings; sourceTree = "<group>"; };
 		A3C9D43F129347C800E2DF54 /* SqueezeSlaveMenuTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SqueezeSlaveMenuTests.h; sourceTree = "<group>"; };
 		A3C9D441129347C800E2DF54 /* SqueezeSlaveMenuTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SqueezeSlaveMenuTests.m; sourceTree = "<group>"; };
+		A3C9D44F12934C0D00E2DF54 /* SSSlave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSSlave.h; sourceTree = "<group>"; };
+		A3C9D45012934C0D00E2DF54 /* SSSlave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSSlave.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +76,7 @@
 		A3C9D416129347C800E2DF54 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A3C9D45212934C1100E2DF54 /* SqueezeSlave */,
 				A3C9D430129347C800E2DF54 /* SqueezeSlaveMenuAppDelegate.h */,
 				A3C9D431129347C800E2DF54 /* SqueezeSlaveMenuAppDelegate.m */,
 			);
@@ -126,6 +130,15 @@
 				A3C9D441129347C800E2DF54 /* SqueezeSlaveMenuTests.m */,
 			);
 			path = Tests;
+			sourceTree = "<group>";
+		};
+		A3C9D45212934C1100E2DF54 /* SqueezeSlave */ = {
+			isa = PBXGroup;
+			children = (
+				A3C9D44F12934C0D00E2DF54 /* SSSlave.h */,
+				A3C9D45012934C0D00E2DF54 /* SSSlave.m */,
+			);
+			name = SqueezeSlave;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,6 +250,7 @@
 			files = (
 				A3C9D429129347C800E2DF54 /* SqueezeSlaveMenu-main.m in Sources */,
 				A3C9D432129347C800E2DF54 /* SqueezeSlaveMenuAppDelegate.m in Sources */,
+				A3C9D45112934C0D00E2DF54 /* SSSlave.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

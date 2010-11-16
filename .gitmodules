@@ -1,0 +1,3 @@
+[submodule "External/squeezeslave"]
+	path = External/squeezeslave
+	url = git://github.com/lukeredpath/squeezeslave.git

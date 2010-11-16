@@ -1,0 +1,13 @@
+# xcode noise
+build/*
+*.pbxuser
+*.mode1v3
+*.mode*
+*perspectivev3
+
+# osx noise
+.DS_Store
+profile
+
+pkg
+Frameworks/OCHamcrest/Source/build

@@ -8,10 +8,15 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class SSSlave;
+
 @interface SqueezeSlaveMenuAppDelegate : NSObject <NSApplicationDelegate> {
   NSWindow *window;
+  NSTextField *statusLabel;
+  SSSlave *squeezeslave;
 }
 
 @property (assign) IBOutlet NSWindow *window;
+@property (retain) IBOutlet NSTextField *statusLabel;
 
 @end
