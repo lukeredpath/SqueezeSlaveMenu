@@ -1,0 +1,456 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A3C9D422129347C800E2DF54 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3C9D421129347C800E2DF54 /* Cocoa.framework */; };
+		A3C9D427129347C800E2DF54 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A3C9D425129347C800E2DF54 /* InfoPlist.strings */; };
+		A3C9D429129347C800E2DF54 /* SqueezeSlaveMenu-main.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C9D428129347C800E2DF54 /* SqueezeSlaveMenu-main.m */; };
+		A3C9D42C129347C800E2DF54 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3C9D42A129347C800E2DF54 /* MainMenu.xib */; };
+		A3C9D42F129347C800E2DF54 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = A3C9D42D129347C800E2DF54 /* Credits.rtf */; };
+		A3C9D432129347C800E2DF54 /* SqueezeSlaveMenuAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C9D431129347C800E2DF54 /* SqueezeSlaveMenuAppDelegate.m */; };
+		A3C9D43A129347C800E2DF54 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3C9D421129347C800E2DF54 /* Cocoa.framework */; };
+		A3C9D43E129347C800E2DF54 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A3C9D43D129347C800E2DF54 /* InfoPlist.strings */; };
+		A3C9D440129347C800E2DF54 /* SqueezeSlaveMenuTests.h in Resources */ = {isa = PBXBuildFile; fileRef = A3C9D43F129347C800E2DF54 /* SqueezeSlaveMenuTests.h */; };
+		A3C9D442129347C800E2DF54 /* SqueezeSlaveMenuTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C9D441129347C800E2DF54 /* SqueezeSlaveMenuTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A3C9D41E129347C800E2DF54 /* SqueezeSlaveMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SqueezeSlaveMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3C9D421129347C800E2DF54 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		A3C9D423129347C800E2DF54 /* SqueezeSlaveMenu-Info.plist */ = {isa = PBXFileReference; path = "SqueezeSlaveMenu-Info.plist"; sourceTree = "<group>"; };
+		A3C9D424129347C800E2DF54 /* SqueezeSlaveMenu-Prefix.pch */ = {isa = PBXFileReference; path = "SqueezeSlaveMenu-Prefix.pch"; sourceTree = "<group>"; };
+		A3C9D426129347C800E2DF54 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A3C9D428129347C800E2DF54 /* SqueezeSlaveMenu-main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SqueezeSlaveMenu-main.m"; sourceTree = "<group>"; };
+		A3C9D42B129347C800E2DF54 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		A3C9D42E129347C800E2DF54 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		A3C9D430129347C800E2DF54 /* SqueezeSlaveMenuAppDelegate.h */ = {isa = PBXFileReference; path = SqueezeSlaveMenuAppDelegate.h; sourceTree = "<group>"; };
+		A3C9D431129347C800E2DF54 /* SqueezeSlaveMenuAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SqueezeSlaveMenuAppDelegate.m; sourceTree = "<group>"; };
+		A3C9D439129347C800E2DF54 /* SqueezeSlaveMenuTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SqueezeSlaveMenuTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3C9D43B129347C800E2DF54 /* SqueezeSlaveMenuTests-Info.plist */ = {isa = PBXFileReference; path = "SqueezeSlaveMenuTests-Info.plist"; sourceTree = "<group>"; };
+		A3C9D43C129347C800E2DF54 /* SqueezeSlaveMenuTests-Prefix.pch */ = {isa = PBXFileReference; path = "SqueezeSlaveMenuTests-Prefix.pch"; sourceTree = "<group>"; };
+		A3C9D43D129347C800E2DF54 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = en.lproj/SqueezeSlaveMenuTests/InfoPlist.strings; sourceTree = "<group>"; };
+		A3C9D43F129347C800E2DF54 /* SqueezeSlaveMenuTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SqueezeSlaveMenuTests.h; sourceTree = "<group>"; };
+		A3C9D441129347C800E2DF54 /* SqueezeSlaveMenuTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SqueezeSlaveMenuTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A3C9D41B129347C800E2DF54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3C9D422129347C800E2DF54 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A3C9D435129347C800E2DF54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3C9D43A129347C800E2DF54 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A3C9D40F129347C800E2DF54 = {
+			isa = PBXGroup;
+			children = (
+				A3C9D416129347C800E2DF54 /* Classes */,
+				A3C9D417129347C800E2DF54 /* Other Sources */,
+				A3C9D418129347C800E2DF54 /* Resources */,
+				A3C9D419129347C800E2DF54 /* Frameworks */,
+				A3C9D41F129347C800E2DF54 /* Products */,
+				A3C9D433129347C800E2DF54 /* Tests */,
+			);
+			sourceTree = "<group>";
+		};
+		A3C9D416129347C800E2DF54 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				A3C9D430129347C800E2DF54 /* SqueezeSlaveMenuAppDelegate.h */,
+				A3C9D431129347C800E2DF54 /* SqueezeSlaveMenuAppDelegate.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		A3C9D417129347C800E2DF54 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				A3C9D424129347C800E2DF54 /* SqueezeSlaveMenu-Prefix.pch */,
+				A3C9D428129347C800E2DF54 /* SqueezeSlaveMenu-main.m */,
+				A3C9D43C129347C800E2DF54 /* SqueezeSlaveMenuTests-Prefix.pch */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		A3C9D418129347C800E2DF54 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A3C9D423129347C800E2DF54 /* SqueezeSlaveMenu-Info.plist */,
+				A3C9D425129347C800E2DF54 /* InfoPlist.strings */,
+				A3C9D42A129347C800E2DF54 /* MainMenu.xib */,
+				A3C9D42D129347C800E2DF54 /* Credits.rtf */,
+				A3C9D43B129347C800E2DF54 /* SqueezeSlaveMenuTests-Info.plist */,
+				A3C9D43D129347C800E2DF54 /* InfoPlist.strings */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		A3C9D419129347C800E2DF54 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A3C9D421129347C800E2DF54 /* Cocoa.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A3C9D41F129347C800E2DF54 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A3C9D41E129347C800E2DF54 /* SqueezeSlaveMenu.app */,
+				A3C9D439129347C800E2DF54 /* SqueezeSlaveMenuTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A3C9D433129347C800E2DF54 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				A3C9D43F129347C800E2DF54 /* SqueezeSlaveMenuTests.h */,
+				A3C9D441129347C800E2DF54 /* SqueezeSlaveMenuTests.m */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A3C9D41D129347C800E2DF54 /* SqueezeSlaveMenu */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A3C9D447129347C800E2DF54 /* Build configuration list for PBXNativeTarget "SqueezeSlaveMenu" */;
+			buildPhases = (
+				A3C9D41A129347C800E2DF54 /* Sources */,
+				A3C9D41B129347C800E2DF54 /* Frameworks */,
+				A3C9D41C129347C800E2DF54 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SqueezeSlaveMenu;
+			productName = SqueezeSlaveMenu;
+			productReference = A3C9D41E129347C800E2DF54 /* SqueezeSlaveMenu.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A3C9D438129347C800E2DF54 /* SqueezeSlaveMenuTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A3C9D44A129347C800E2DF54 /* Build configuration list for PBXNativeTarget "SqueezeSlaveMenuTests" */;
+			buildPhases = (
+				A3C9D434129347C800E2DF54 /* Sources */,
+				A3C9D435129347C800E2DF54 /* Frameworks */,
+				A3C9D436129347C800E2DF54 /* Resources */,
+				A3C9D437129347C800E2DF54 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SqueezeSlaveMenuTests;
+			productName = SqueezeSlaveMenuTests;
+			productReference = A3C9D439129347C800E2DF54 /* SqueezeSlaveMenuTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A3C9D411129347C800E2DF54 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "LJR Software Limited";
+			};
+			buildConfigurationList = A3C9D414129347C800E2DF54 /* Build configuration list for PBXProject "SqueezeSlaveMenu" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = A3C9D40F129347C800E2DF54;
+			productRefGroup = A3C9D41F129347C800E2DF54 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A3C9D41D129347C800E2DF54 /* SqueezeSlaveMenu */,
+				A3C9D438129347C800E2DF54 /* SqueezeSlaveMenuTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A3C9D41C129347C800E2DF54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3C9D427129347C800E2DF54 /* InfoPlist.strings in Resources */,
+				A3C9D42C129347C800E2DF54 /* MainMenu.xib in Resources */,
+				A3C9D42F129347C800E2DF54 /* Credits.rtf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A3C9D436129347C800E2DF54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3C9D43E129347C800E2DF54 /* InfoPlist.strings in Resources */,
+				A3C9D440129347C800E2DF54 /* SqueezeSlaveMenuTests.h in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A3C9D437129347C800E2DF54 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A3C9D41A129347C800E2DF54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3C9D429129347C800E2DF54 /* SqueezeSlaveMenu-main.m in Sources */,
+				A3C9D432129347C800E2DF54 /* SqueezeSlaveMenuAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A3C9D434129347C800E2DF54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3C9D442129347C800E2DF54 /* SqueezeSlaveMenuTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A3C9D425129347C800E2DF54 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A3C9D426129347C800E2DF54 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A3C9D42A129347C800E2DF54 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A3C9D42B129347C800E2DF54 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		A3C9D42D129347C800E2DF54 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A3C9D42E129347C800E2DF54 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A3C9D443129347C800E2DF54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		A3C9D444129347C800E2DF54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				PREBINDING = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		A3C9D445129347C800E2DF54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		A3C9D446129347C800E2DF54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		A3C9D448129347C800E2DF54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SqueezeSlaveMenu-Prefix.pch";
+				INFOPLIST_FILE = "SqueezeSlaveMenu-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		A3C9D449129347C800E2DF54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SqueezeSlaveMenu-Prefix.pch";
+				INFOPLIST_FILE = "SqueezeSlaveMenu-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		A3C9D44B129347C800E2DF54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SqueezeSlaveMenuTests-Prefix.pch";
+				INFOPLIST_FILE = "SqueezeSlaveMenuTests-Info.plist";
+				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		A3C9D44C129347C800E2DF54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SqueezeSlaveMenuTests-Prefix.pch";
+				INFOPLIST_FILE = "SqueezeSlaveMenuTests-Info.plist";
+				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+		A3C9D44D129347C800E2DF54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = SqueezeSlaveMenuTests;
+			};
+			name = Debug;
+		};
+		A3C9D44E129347C800E2DF54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				PRODUCT_NAME = SqueezeSlaveMenuTests;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A3C9D414129347C800E2DF54 /* Build configuration list for PBXProject "SqueezeSlaveMenu" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A3C9D443129347C800E2DF54 /* Debug */,
+				A3C9D444129347C800E2DF54 /* Release */,
+				A3C9D445129347C800E2DF54 /* Debug */,
+				A3C9D446129347C800E2DF54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A3C9D447129347C800E2DF54 /* Build configuration list for PBXNativeTarget "SqueezeSlaveMenu" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A3C9D448129347C800E2DF54 /* Debug */,
+				A3C9D449129347C800E2DF54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A3C9D44A129347C800E2DF54 /* Build configuration list for PBXNativeTarget "SqueezeSlaveMenuTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A3C9D44B129347C800E2DF54 /* Debug */,
+				A3C9D44C129347C800E2DF54 /* Release */,
+				A3C9D44D129347C800E2DF54 /* Debug */,
+				A3C9D44E129347C800E2DF54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A3C9D411129347C800E2DF54 /* Project object */;
+}
