@@ -13,32 +13,45 @@
 
 @synthesize window;
 @synthesize statusLabel;
+@synthesize connectButton;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification 
 {
   squeezeslave = [[SSSlave alloc] init];
+  squeezeslave.delegate = self;
 }
 
-- (IBAction)toggleConnect:(NSButton *)button;
+- (IBAction)toggleConnect:(id)sender;
 {
-  [button setEnabled:NO];
+  [connectButton setEnabled:NO];
   
   if (squeezeslave.isConnected) {
     [squeezeslave disconnect];
-    [self.statusLabel setStringValue:@"Disconnected"];
-    [button setTitle:@"Connect"];
-    [button setEnabled:YES];
+    
   } else {
     NSError *error = nil;
-    if([squeezeslave connect:&error]) {
-      [self.statusLabel setStringValue:@"Connected"];
-      [button setTitle:@"Disconnect"];
-      [button setEnabled:YES];
-    } else {
+    if(![squeezeslave connect:&error]) {
       [self.statusLabel setStringValue:[NSString stringWithFormat:@"Connection failed, %@", [error localizedDescription]]];
-      [button setEnabled:YES];
-    }    
+      [connectButton setEnabled:YES];
+    }
   }
+}
+
+#pragma mark -
+#pragma mark SSSlaveDelegate methods
+
+- (void)slaveDidConnect:(SSSlave *)slave
+{
+  [self.statusLabel setStringValue:@"Connected"];
+  [connectButton setTitle:@"Disconnect"];
+  [connectButton setEnabled:YES];
+}
+
+- (void)slaveDidDisconnect:(SSSlave *)slave
+{
+  [self.statusLabel setStringValue:@"Disconnected"];
+  [connectButton setTitle:@"Connect"];
+  [connectButton setEnabled:YES];
 }
 
 @end

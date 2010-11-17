@@ -41,6 +41,7 @@ NSString *const SSSlaveErrorDomain = @"SSSlaveErrorDomain";
 
 @synthesize connected;
 @synthesize MAC;
+@synthesize delegate;
 
 - (id)init 
 {
@@ -105,9 +106,7 @@ NSString *const SSSlaveErrorDomain = @"SSSlaveErrorDomain";
         [NSDictionary dictionaryWithObject:@"Failed to connect to server." forKey:@"debugInfo"]];
     return NO;
   }
-  
-  connected = YES;
-  
+ 
   return YES;
 }
 
@@ -119,6 +118,10 @@ NSString *const SSSlaveErrorDomain = @"SSSlaveErrorDomain";
     slimaudio_destroy(&slimaudio);
     slimproto_destroy(&slimproto);
     connected = NO;
+    
+    if ([self.delegate respondsToSelector:@selector(slaveDidDisconnect:)]) {
+      [(id)self.delegate performSelectorOnMainThread:@selector(slaveDidDisconnect:) withObject:self waitUntilDone:NO];
+    }
   }
 }
 
@@ -127,15 +130,22 @@ NSString *const SSSlaveErrorDomain = @"SSSlaveErrorDomain";
 
 - (void)handleSlimprotoConnect:(bool)isConnected
 {
-  if (isConnected) {
+  connected = (BOOL)isConnected;
+  
+  if (connected) {
     char mac_address[12];
     [MAC getCString:mac_address maxLength:12 encoding:NSUTF8StringEncoding];
     
     if (slimproto_helo(&slimproto, player_type, firmware, mac_address, 0, 0) < 0) {
       NSLog(@"Could not send helo to Squeezebox Server.");
+      [self disconnect];
+    } else {
+      if ([self.delegate respondsToSelector:@selector(slaveDidConnect:)]) {
+        [(id)self.delegate performSelectorOnMainThread:@selector(slaveDidConnect:) withObject:self waitUntilDone:NO];
+      }
     }
   } else {
-    NSLog(@"Connect callback called, not connected!");
+    [self disconnect];
   }
 }
 

@@ -7,17 +7,18 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "SSSlave.h"
 
-@class SSSlave;
-
-@interface SqueezeSlaveMenuAppDelegate : NSObject <NSApplicationDelegate> {
+@interface SqueezeSlaveMenuAppDelegate : NSObject <NSApplicationDelegate, SSSlaveDelegate> {
   NSWindow *window;
   NSTextField *statusLabel;
+  NSButton *connectButton;
   SSSlave *squeezeslave;
 }
 
 @property (assign) IBOutlet NSWindow *window;
 @property (retain) IBOutlet NSTextField *statusLabel;
+@property (retain) IBOutlet NSButton *connectButton;
 
-- (IBAction)toggleConnect:(NSButton *)button;
+- (IBAction)toggleConnect:(id)sender;
 @end

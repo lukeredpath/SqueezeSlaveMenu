@@ -1376,18 +1376,18 @@
 								<reference key="NSTextColor" ref="857243777"/>
 							</object>
 						</object>
-						<object class="NSButton" id="964080146">
+						<object class="NSButton" id="407706160">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{508, 1}, {96, 32}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<bool key="NSEnabled">YES</bool>
-							<object class="NSButtonCell" key="NSCell" id="281033479">
+							<object class="NSButtonCell" key="NSCell" id="356556191">
 								<int key="NSCellFlags">67239424</int>
 								<int key="NSCellFlags2">134217728</int>
 								<string key="NSContents">Connect</string>
 								<reference key="NSSupport" ref="472859392"/>
-								<reference key="NSControlView" ref="964080146"/>
+								<reference key="NSControlView" ref="407706160"/>
 								<int key="NSButtonFlags">-2038284033</int>
 								<int key="NSButtonFlags2">129</int>
 								<string key="NSAlternateContents"/>
@@ -2106,9 +2106,17 @@
 					<object class="IBActionConnection" key="connection">
 						<string key="label">toggleConnect:</string>
 						<reference key="source" ref="976324537"/>
-						<reference key="destination" ref="964080146"/>
+						<reference key="destination" ref="407706160"/>
 					</object>
 					<int key="connectionID">542</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">connectButton</string>
+						<reference key="source" ref="976324537"/>
+						<reference key="destination" ref="407706160"/>
+					</object>
+					<int key="connectionID">543</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -2669,7 +2677,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="496074218"/>
 							<reference ref="429314349"/>
-							<reference ref="964080146"/>
+							<reference ref="407706160"/>
 						</object>
 						<reference key="parent" ref="972006081"/>
 					</object>
@@ -3189,17 +3197,17 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">540</int>
-						<reference key="object" ref="964080146"/>
+						<reference key="object" ref="407706160"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="281033479"/>
+							<reference ref="356556191"/>
 						</object>
 						<reference key="parent" ref="439893737"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">541</int>
-						<reference key="object" ref="281033479"/>
-						<reference key="parent" ref="964080146"/>
+						<reference key="object" ref="356556191"/>
+						<reference key="parent" ref="407706160"/>
 					</object>
 				</object>
 			</object>
@@ -3742,7 +3750,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">542</int>
+			<int key="maxID">543</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -3765,11 +3773,13 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>connectButton</string>
 							<string>statusLabel</string>
 							<string>window</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>NSButton</string>
 							<string>NSTextField</string>
 							<string>NSWindow</string>
 						</object>
@@ -3778,11 +3788,16 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>connectButton</string>
 							<string>statusLabel</string>
 							<string>window</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBToOneOutletInfo">
+								<string key="name">connectButton</string>
+								<string key="candidateClassName">NSButton</string>
+							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">statusLabel</string>
 								<string key="candidateClassName">NSTextField</string>
