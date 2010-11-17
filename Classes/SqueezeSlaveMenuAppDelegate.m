@@ -17,7 +17,7 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification 
 {
-  squeezeslave = [[SSSlave alloc] initWithHost:@"mac-mini.local"];
+  squeezeslave = [[SSSlave alloc] initWithHost:@"mac-mini.local" audioDeviceIndex:2];
   squeezeslave.delegate = self;
 }
 

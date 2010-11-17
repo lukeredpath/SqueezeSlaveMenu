@@ -40,15 +40,16 @@ NSString *const SSSlaveErrorDomain = @"SSSlaveErrorDomain";
 @implementation SSSlave
 
 @synthesize connected;
-@synthesize MAC;
+@synthesize macAddress;
 @synthesize delegate;
 
-- (id)initWithHost:(NSString *)host
+- (id)initWithHost:(NSString *)host audioDeviceIndex:(NSInteger)deviceIndex;
 {
   if ((self = [super init])) {
     connected = NO;
-    MAC = @"000000000001";
+    macAddress = @"000000000001";
     serverHost = [host copy];
+    audioDeviceIndex = deviceIndex;
   }
   
   return self;
@@ -58,15 +59,13 @@ NSString *const SSSlaveErrorDomain = @"SSSlaveErrorDomain";
 {  
   [self disconnect];
   [serverHost release];
-  [MAC release];
+  [macAddress release];
   [super dealloc];
 }
 
 - (BOOL)connect:(NSError **)error;
 {
   [self disconnect];
-  
-  PaDeviceIndex output_device_id = 2;
   
   unsigned int output_predelay = 0;
   unsigned int output_predelay_amplitude = 0;
@@ -81,7 +80,7 @@ NSString *const SSSlaveErrorDomain = @"SSSlaveErrorDomain";
     return NO;
   }
   
-  if (slimaudio_init(&slimaudio, &slimproto, output_device_id, output_change) < 0) {
+  if (slimaudio_init(&slimaudio, &slimproto, (PaDeviceIndex)audioDeviceIndex, output_change) < 0) {
     *error = [NSError errorWithDomain:SSSlaveErrorDomain code:SSSlaveInitializationError userInfo:
         [NSDictionary dictionaryWithObject:@"Failed to initialize slimaudio." forKey:@"debugInfo"]];
     return NO;
@@ -130,13 +129,12 @@ NSString *const SSSlaveErrorDomain = @"SSSlaveErrorDomain";
 
 - (void)handleSlimprotoConnect:(bool)isConnected
 {
+  NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+  
   connected = (BOOL)isConnected;
   
   if (connected) {
-    char mac_address[12];
-    [MAC getCString:mac_address maxLength:12 encoding:NSUTF8StringEncoding];
-    
-    if (slimproto_helo(&slimproto, player_type, firmware, mac_address, 0, 0) < 0) {
+    if (slimproto_helo(&slimproto, player_type, firmware, [macAddress cStringUsingEncoding:NSUTF8StringEncoding], 0, 0) < 0) {
       NSLog(@"Could not send helo to Squeezebox Server.");
       [self disconnect];
     } else {
@@ -147,6 +145,8 @@ NSString *const SSSlaveErrorDomain = @"SSSlaveErrorDomain";
   } else {
     [self disconnect];
   }
+  
+  [pool release];
 }
 
 @end

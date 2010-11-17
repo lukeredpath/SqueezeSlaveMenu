@@ -27,21 +27,21 @@ typedef enum {
 - (void)slaveDidDisconnect:(SSSlave *)slave;
 @end
 
-
 @interface SSSlave : NSObject {
 @private
   BOOL connected;
   slimproto_t slimproto;
   slimaudio_t slimaudio;
-  NSString *MAC;
+  NSString *macAddress;
   NSString *serverHost;
+  NSInteger audioDeviceIndex;
   id<SSSlaveDelegate> delegate;
 }
 @property (nonatomic, readonly, getter=isConnected) BOOL connected;
-@property (nonatomic, readonly) NSString *MAC;
+@property (nonatomic, copy) NSString *macAddress;
 @property (nonatomic, assign) id<SSSlaveDelegate> delegate;
 
-- (id)initWithHost:(NSString *)host;
+- (id)initWithHost:(NSString *)host audioDeviceIndex:(NSInteger)deviceIndex;
 - (BOOL)connect:(NSError **)error;
 - (void)disconnect;
 @end
