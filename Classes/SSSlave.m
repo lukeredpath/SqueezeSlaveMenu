@@ -41,6 +41,8 @@ NSString *const SSSlaveErrorDomain = @"SSSlaveErrorDomain";
 
 @implementation SSSlave
 
+@synthesize connected;
+
 - (id)init 
 {
   if ((self = [super init])) {
@@ -115,7 +117,8 @@ NSString *const SSSlaveErrorDomain = @"SSSlaveErrorDomain";
     slimaudio_close(&slimaudio);
     slimproto_close(&slimproto);
     slimaudio_destroy(&slimaudio);
-    slimproto_destroy(&slimproto);    
+    slimproto_destroy(&slimproto);
+    connected = NO;
   }
 }
 

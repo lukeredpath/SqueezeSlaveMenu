@@ -17,15 +17,28 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification 
 {
   squeezeslave = [[SSSlave alloc] init];
-  
-  NSError *error = nil;
-  
-  if([squeezeslave connect:&error]) {
-    [self.statusLabel setStringValue:@"Connected"];
-  } else {
-    [self.statusLabel setStringValue:[NSString stringWithFormat:@"Connection failed, %@", [error localizedDescription]]];
-  }
+}
 
+- (IBAction)toggleConnect:(NSButton *)button;
+{
+  [button setEnabled:NO];
+  
+  if (squeezeslave.isConnected) {
+    [squeezeslave disconnect];
+    [self.statusLabel setStringValue:@"Disconnected"];
+    [button setTitle:@"Connect"];
+    [button setEnabled:YES];
+  } else {
+    NSError *error = nil;
+    if([squeezeslave connect:&error]) {
+      [self.statusLabel setStringValue:@"Connected"];
+      [button setTitle:@"Disconnect"];
+      [button setEnabled:YES];
+    } else {
+      [self.statusLabel setStringValue:[NSString stringWithFormat:@"Connection failed, %@", [error localizedDescription]]];
+      [button setEnabled:YES];
+    }    
+  }
 }
 
 @end

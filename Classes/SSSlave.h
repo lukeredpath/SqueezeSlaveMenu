@@ -25,6 +25,8 @@ typedef enum {
   slimproto_t slimproto;
   slimaudio_t slimaudio;  
 }
+@property (nonatomic, readonly, getter=isConnected) BOOL connected;
+
 - (BOOL)connect:(NSError **)error;
 - (void)disconnect;
 @end

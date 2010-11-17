@@ -19,4 +19,5 @@
 @property (assign) IBOutlet NSWindow *window;
 @property (retain) IBOutlet NSTextField *statusLabel;
 
+- (IBAction)toggleConnect:(NSButton *)button;
 @end
