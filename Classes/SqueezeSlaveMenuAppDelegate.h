@@ -33,4 +33,5 @@ typedef enum {
 - (void)disconnect;
 - (void)updateOutputDevices;
 - (void)updateStatus:(NSString *)status;
+- (void)handleError:(NSError *)error;
 @end

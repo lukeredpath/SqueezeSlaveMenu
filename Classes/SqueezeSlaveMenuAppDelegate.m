@@ -95,7 +95,7 @@
   NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
   
   if (squeezeslave == nil) {
-    squeezeslave = [[SSSlave alloc] initWithHost:@"mac-mini.local" outputDevice:self.currentOutputDevice];
+    squeezeslave = [[SSSlave alloc] initWithHost:@"localhost" outputDevice:self.currentOutputDevice];
     squeezeslave.delegate = self;
   }
   NSError *error = nil;
@@ -103,7 +103,9 @@
   [self updateStatus:@"Connecting..."];
   
   if(![squeezeslave connect:&error]) {
+    [[self.statusBarMenu itemWithTag:SSMenuConnectItem] setTitle:@"Connect To Server"];
     [self updateStatus:@"Disconnected"];
+    [self handleError:error];
   }
   [pool release];
 }
@@ -118,6 +120,11 @@
 - (void)updateStatus:(NSString *)status;
 {
   [[self.statusBarMenu itemWithTag:SSMenuStatusMenuItem] setTitle:[NSString stringWithFormat:@"Status: %@", status]];
+}
+
+- (void)handleError:(NSError *)error;
+{
+  [[NSAlert alertWithError:error] runModal];
 }
 
 #pragma mark -
