@@ -7,7 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "SSSlave.h"
+#import "SSSlaveDelegate.h"
 
 @interface SqueezeSlaveMenuAppDelegate : NSObject <NSApplicationDelegate, SSSlaveDelegate> {
   NSWindow *window;

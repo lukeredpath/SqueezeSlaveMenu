@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-
 #import <slimaudio/slimaudio.h>
 #import <slimproto/slimproto.h>
+#import "SSSlaveDelegate.h"
 
 #define FIRMWARE_VERSION	2
 #define SLIMPROTOCOL_PORT	3483
@@ -22,14 +22,6 @@ typedef enum {
   SSSlaveInitializationError,
   SSSlaveConnectionError
 } SSSlaveErrorCode;
-
-@class SSSlave;
-
-@protocol SSSlaveDelegate <NSObject>
-@optional
-- (void)slaveDidConnect:(SSSlave *)slave;
-- (void)slaveDidDisconnect:(SSSlave *)slave;
-@end
 
 @interface SSSlave : NSObject {
 @private

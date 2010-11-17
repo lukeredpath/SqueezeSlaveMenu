@@ -45,6 +45,7 @@
 		A3C3252F12936892002A27A6 /* libvorbisenc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libvorbisenc.a; path = External/squeezeslave/lib/vorbis/osxintel/lib/libvorbisenc.a; sourceTree = "<group>"; };
 		A3C3253012936892002A27A6 /* libvorbisfile.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libvorbisfile.a; path = External/squeezeslave/lib/vorbis/osxintel/lib/libvorbisfile.a; sourceTree = "<group>"; };
 		A3C32535129368B9002A27A6 /* libFLAC.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFLAC.a; path = External/squeezeslave/lib/flac/osxintel/lib/libFLAC.a; sourceTree = "<group>"; };
+		A3C326F4129377C0002A27A6 /* SSSlaveDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSSlaveDelegate.h; sourceTree = "<group>"; };
 		A3C9D41E129347C800E2DF54 /* SqueezeSlaveMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SqueezeSlaveMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3C9D421129347C800E2DF54 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		A3C9D423129347C800E2DF54 /* SqueezeSlaveMenu-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SqueezeSlaveMenu-Info.plist"; sourceTree = "<group>"; };
@@ -193,6 +194,7 @@
 			children = (
 				A3C9D44F12934C0D00E2DF54 /* SSSlave.h */,
 				A3C9D45012934C0D00E2DF54 /* SSSlave.m */,
+				A3C326F4129377C0002A27A6 /* SSSlaveDelegate.h */,
 			);
 			name = SqueezeSlave;
 			sourceTree = "<group>";
