@@ -8,6 +8,10 @@
 
 #import "SSSlave.h"
 
+@interface SSSlave ()
+- (void)handleSlimprotoConnect:(bool)isConnected;
+@end
+
 #define RETRY_DEFAULT	5
 #define LINE_COUNT	2
 #define OPTLEN		64
@@ -27,13 +31,7 @@ static int firmware = FIRMWARE_VERSION;
 static int player_type = PLAYER_TYPE;
 
 int connect_callback(slimproto_t *p, bool isConnected, void *user_data) {
-  if (isConnected) {
-    if (slimproto_helo(p, player_type, firmware, (char*) user_data, 0, 0) < 0) {
-      NSLog(@"Could not send helo to Squeezebox Server.");
-    }
-  } else {
-    NSLog(@"Connect callback called, not connected!");
-  }
+  [(SSSlave *)user_data handleSlimprotoConnect:isConnected];
   return 0;
 }
 
@@ -42,11 +40,13 @@ NSString *const SSSlaveErrorDomain = @"SSSlaveErrorDomain";
 @implementation SSSlave
 
 @synthesize connected;
+@synthesize MAC;
 
 - (id)init 
 {
   if ((self = [super init])) {
     connected = NO;
+    MAC = @"000000000001";
   }
   
   return self;
@@ -55,6 +55,7 @@ NSString *const SSSlaveErrorDomain = @"SSSlaveErrorDomain";
 - (void)dealloc 
 {  
   [self disconnect];
+  [MAC release];
   [super dealloc];
 }
 
@@ -68,8 +69,7 @@ NSString *const SSSlaveErrorDomain = @"SSSlaveErrorDomain";
   unsigned int output_predelay_amplitude = 0;
   
   slimaudio_volume_t volume_control = VOLUME_SOFTWARE;
-  
-  char macaddress[6] = { 0, 0, 0, 0, 0, 1 };
+
   int keepalive_interval = -1;
 
   char *slimserver_address = "mac-mini.local";
@@ -86,7 +86,7 @@ NSString *const SSSlaveErrorDomain = @"SSSlaveErrorDomain";
     return NO;
   }
   
-  slimproto_add_connect_callback(&slimproto, connect_callback, macaddress);
+  slimproto_add_connect_callback(&slimproto, connect_callback, self);
   slimaudio_set_volume_control(&slimaudio, volume_control);
   slimaudio_set_output_predelay(&slimaudio, output_predelay, output_predelay_amplitude);
   
@@ -119,6 +119,23 @@ NSString *const SSSlaveErrorDomain = @"SSSlaveErrorDomain";
     slimaudio_destroy(&slimaudio);
     slimproto_destroy(&slimproto);
     connected = NO;
+  }
+}
+
+#pragma mark -
+#pragma mark Private slimproto handlers
+
+- (void)handleSlimprotoConnect:(bool)isConnected
+{
+  if (isConnected) {
+    char mac_address[12];
+    [MAC getCString:mac_address maxLength:12 encoding:NSUTF8StringEncoding];
+    
+    if (slimproto_helo(&slimproto, player_type, firmware, mac_address, 0, 0) < 0) {
+      NSLog(@"Could not send helo to Squeezebox Server.");
+    }
+  } else {
+    NSLog(@"Connect callback called, not connected!");
   }
 }
 

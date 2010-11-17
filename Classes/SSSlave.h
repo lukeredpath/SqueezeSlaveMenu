@@ -23,9 +23,11 @@ typedef enum {
 @private
   BOOL connected;
   slimproto_t slimproto;
-  slimaudio_t slimaudio;  
+  slimaudio_t slimaudio;
+  NSString *MAC;
 }
 @property (nonatomic, readonly, getter=isConnected) BOOL connected;
+@property (nonatomic, readonly) NSString *MAC;
 
 - (BOOL)connect:(NSError **)error;
 - (void)disconnect;
