@@ -21,6 +21,11 @@
   squeezeslave.delegate = self;
 }
 
+- (void)applicationWillTerminate:(NSNotification *)notification
+{
+  [squeezeslave disconnect];
+}
+
 - (IBAction)toggleConnect:(id)sender;
 {
   [connectButton setEnabled:NO];
