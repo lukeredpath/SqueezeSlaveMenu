@@ -9,6 +9,8 @@
 #import "SqueezeSlaveMenuAppDelegate.h"
 #import "SSSlave.h"
 
+#define kAudioDeviceMenuTagBase 2000
+
 @implementation SqueezeSlaveMenuAppDelegate
 
 @synthesize availableDevices;
@@ -33,11 +35,13 @@
   [squeezeslave disconnect];
 }
 
-- (IBAction)toggleConnect:(id)sender;
+- (IBAction)toggleConnect:(NSMenuItem *)sender;
 {
   if (squeezeslave.isConnected) {
+    [sender setTitle:@"Connect To Server"];
     [self performSelectorInBackground:@selector(disconnect) withObject:nil];
   } else {
+    [sender setTitle:@"Disconnect"];
     [self performSelectorInBackground:@selector(connect) withObject:nil];
   }
 }
@@ -58,6 +62,7 @@
   for (int i = 0; i < self.availableDevices.count; i++) {
     SSSlaveOutputDevice *device = [self.availableDevices objectAtIndex:i];
     NSMenuItem *menuItem = [[NSMenuItem alloc] initWithTitle:[device description] action:@selector(outputDeviceSelected:) keyEquivalent:@""];
+    [menuItem setTag:kAudioDeviceMenuTagBase+i];
     [menuItem setEnabled:YES];
     if (device == self.currentOutputDevice) {
       [menuItem setState:1];
@@ -67,11 +72,22 @@
   }
 }
 
+- (void)outputDeviceSelected:(NSMenuItem *)sender
+{
+  NSInteger indexOfCurrentOutputDevice = [self.availableDevices indexOfObject:self.currentOutputDevice];
+  NSMenuItem *currentMenuItem = [self.statusBarMenu itemWithTag:kAudioDeviceMenuTagBase+indexOfCurrentOutputDevice];
+  [currentMenuItem setState:0];  
+  self.currentOutputDevice = [self.availableDevices objectAtIndex:sender.tag - kAudioDeviceMenuTagBase];
+  [sender setState:1];
+}
+
 - (void)setCurrentOutputDevice:(SSSlaveOutputDevice *)outputDevice
 {
+  if (squeezeslave.isConnected) {
+    [self toggleConnect:[self.statusBarMenu itemWithTag:SSMenuConnectItem]];
+  }
   [currentOutputDevice autorelease];
   currentOutputDevice = [outputDevice retain];
-  [squeezeslave release], squeezeslave = nil;
 }
 
 - (void)connect
@@ -115,6 +131,7 @@
 - (void)slaveDidDisconnect:(SSSlave *)slave
 {
   [self updateStatus:@"Disconnected"];
+  [squeezeslave release], squeezeslave = nil;
 }
 
 @end

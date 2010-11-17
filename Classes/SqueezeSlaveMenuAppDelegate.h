@@ -14,7 +14,8 @@
 typedef enum {
   SSMenuStatusMenuItem = 1001,
   SSMenuDevicesStartSeparator,
-  SSMenuDevicesEndSeparator
+  SSMenuDevicesEndSeparator,
+  SSMenuConnectItem
 } SSMenuStatusItems;
 
 @interface SqueezeSlaveMenuAppDelegate : NSObject <NSApplicationDelegate, SSSlaveDelegate> {
@@ -28,6 +29,8 @@ typedef enum {
 @property (nonatomic, retain) SSSlaveOutputDevice *currentOutputDevice;
 
 - (IBAction)toggleConnect:(id)sender;
+- (void)connect;
+- (void)disconnect;
 - (void)updateOutputDevices;
 - (void)updateStatus:(NSString *)status;
 @end
