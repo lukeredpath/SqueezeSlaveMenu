@@ -34,12 +34,14 @@ typedef enum {
   slimproto_t slimproto;
   slimaudio_t slimaudio;
   NSString *MAC;
+  NSString *serverHost;
   id<SSSlaveDelegate> delegate;
 }
 @property (nonatomic, readonly, getter=isConnected) BOOL connected;
 @property (nonatomic, readonly) NSString *MAC;
 @property (nonatomic, assign) id<SSSlaveDelegate> delegate;
 
+- (id)initWithHost:(NSString *)host;
 - (BOOL)connect:(NSError **)error;
 - (void)disconnect;
 @end

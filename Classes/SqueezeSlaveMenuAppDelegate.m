@@ -17,7 +17,7 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification 
 {
-  squeezeslave = [[SSSlave alloc] init];
+  squeezeslave = [[SSSlave alloc] initWithHost:@"mac-mini.local"];
   squeezeslave.delegate = self;
 }
 

@@ -43,11 +43,12 @@ NSString *const SSSlaveErrorDomain = @"SSSlaveErrorDomain";
 @synthesize MAC;
 @synthesize delegate;
 
-- (id)init 
+- (id)initWithHost:(NSString *)host
 {
   if ((self = [super init])) {
     connected = NO;
     MAC = @"000000000001";
+    serverHost = [host copy];
   }
   
   return self;
@@ -56,6 +57,7 @@ NSString *const SSSlaveErrorDomain = @"SSSlaveErrorDomain";
 - (void)dealloc 
 {  
   [self disconnect];
+  [serverHost release];
   [MAC release];
   [super dealloc];
 }
@@ -72,8 +74,6 @@ NSString *const SSSlaveErrorDomain = @"SSSlaveErrorDomain";
   slimaudio_volume_t volume_control = VOLUME_SOFTWARE;
 
   int keepalive_interval = -1;
-
-  char *slimserver_address = "mac-mini.local";
 
   if (slimproto_init(&slimproto) < 0) {
     *error = [NSError errorWithDomain:SSSlaveErrorDomain code:SSSlaveInitializationError userInfo:
@@ -101,7 +101,7 @@ NSString *const SSSlaveErrorDomain = @"SSSlaveErrorDomain";
     return NO;
   }
   
-  if (slimproto_connect(&slimproto, slimserver_address, port) < 0) {
+  if (slimproto_connect(&slimproto, [serverHost cStringUsingEncoding:NSUTF8StringEncoding], port) < 0) {
     *error = [NSError errorWithDomain:SSSlaveErrorDomain code:SSSlaveConnectionError userInfo:
         [NSDictionary dictionaryWithObject:@"Failed to connect to server." forKey:@"debugInfo"]];
     return NO;
