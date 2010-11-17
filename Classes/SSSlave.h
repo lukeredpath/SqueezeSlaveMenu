@@ -8,15 +8,24 @@
 
 #import <Foundation/Foundation.h>
 
+#import <slimaudio/slimaudio.h>
+#import <slimproto/slimproto.h>
+
 extern NSString *const SSSlaveErrorDomain;
 
 typedef enum {
-  SSSlaveUnknownError = 0
+  SSSlaveUnknownError = 0,
+  SSSlaveInitializationError,
+  SSSlaveConnectionError
 } SSSlaveErrorCode;
 
 @interface SSSlave : NSObject {
 @private
-    
+  BOOL connected;
+  slimproto_t slimproto;
+  slimaudio_t slimaudio;  
 }
 - (BOOL)connect:(NSError **)error;
+- (void)disconnect;
 @end
+

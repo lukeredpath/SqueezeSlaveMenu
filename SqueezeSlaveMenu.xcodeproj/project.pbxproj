@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A3C32382129359A5002A27A6 /* libslimproto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3C32381129359A5002A27A6 /* libslimproto.a */; };
+		A3C323AE12935B09002A27A6 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3C323AD12935B09002A27A6 /* AudioToolbox.framework */; };
+		A3C323B012935B09002A27A6 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3C323AF12935B09002A27A6 /* AudioUnit.framework */; };
+		A3C323B212935B09002A27A6 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3C323B112935B09002A27A6 /* CoreAudio.framework */; };
+		A3C323B412935B09002A27A6 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3C323B312935B09002A27A6 /* CoreServices.framework */; };
+		A3C3252A1293687A002A27A6 /* libmad.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3C325291293687A002A27A6 /* libmad.a */; };
+		A3C3252C12936884002A27A6 /* libportaudio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3C3252B12936884002A27A6 /* libportaudio.a */; };
+		A3C3253112936892002A27A6 /* libogg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3C3252D12936892002A27A6 /* libogg.a */; };
+		A3C3253212936892002A27A6 /* libvorbis.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3C3252E12936892002A27A6 /* libvorbis.a */; };
+		A3C3253312936892002A27A6 /* libvorbisenc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3C3252F12936892002A27A6 /* libvorbisenc.a */; };
+		A3C3253412936892002A27A6 /* libvorbisfile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3C3253012936892002A27A6 /* libvorbisfile.a */; };
+		A3C32536129368B9002A27A6 /* libFLAC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3C32535129368B9002A27A6 /* libFLAC.a */; };
 		A3C9D422129347C800E2DF54 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3C9D421129347C800E2DF54 /* Cocoa.framework */; };
 		A3C9D427129347C800E2DF54 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A3C9D425129347C800E2DF54 /* InfoPlist.strings */; };
 		A3C9D429129347C800E2DF54 /* SqueezeSlaveMenu-main.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C9D428129347C800E2DF54 /* SqueezeSlaveMenu-main.m */; };
@@ -21,6 +33,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A3C32381129359A5002A27A6 /* libslimproto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libslimproto.a; path = External/squeezeslave/lib/libslimproto.a; sourceTree = "<group>"; };
+		A3C323AD12935B09002A27A6 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		A3C323AF12935B09002A27A6 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
+		A3C323B112935B09002A27A6 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		A3C323B312935B09002A27A6 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
+		A3C325291293687A002A27A6 /* libmad.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libmad.a; path = External/squeezeslave/lib/libmad/osxintel/lib/libmad.a; sourceTree = "<group>"; };
+		A3C3252B12936884002A27A6 /* libportaudio.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libportaudio.a; path = External/squeezeslave/lib/libportaudio/osxintel/lib/libportaudio.a; sourceTree = "<group>"; };
+		A3C3252D12936892002A27A6 /* libogg.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libogg.a; path = External/squeezeslave/lib/vorbis/osxintel/lib/libogg.a; sourceTree = "<group>"; };
+		A3C3252E12936892002A27A6 /* libvorbis.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libvorbis.a; path = External/squeezeslave/lib/vorbis/osxintel/lib/libvorbis.a; sourceTree = "<group>"; };
+		A3C3252F12936892002A27A6 /* libvorbisenc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libvorbisenc.a; path = External/squeezeslave/lib/vorbis/osxintel/lib/libvorbisenc.a; sourceTree = "<group>"; };
+		A3C3253012936892002A27A6 /* libvorbisfile.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libvorbisfile.a; path = External/squeezeslave/lib/vorbis/osxintel/lib/libvorbisfile.a; sourceTree = "<group>"; };
+		A3C32535129368B9002A27A6 /* libFLAC.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFLAC.a; path = External/squeezeslave/lib/flac/osxintel/lib/libFLAC.a; sourceTree = "<group>"; };
 		A3C9D41E129347C800E2DF54 /* SqueezeSlaveMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SqueezeSlaveMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3C9D421129347C800E2DF54 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		A3C9D423129347C800E2DF54 /* SqueezeSlaveMenu-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SqueezeSlaveMenu-Info.plist"; sourceTree = "<group>"; };
@@ -47,6 +71,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3C9D422129347C800E2DF54 /* Cocoa.framework in Frameworks */,
+				A3C32382129359A5002A27A6 /* libslimproto.a in Frameworks */,
+				A3C323AE12935B09002A27A6 /* AudioToolbox.framework in Frameworks */,
+				A3C323B012935B09002A27A6 /* AudioUnit.framework in Frameworks */,
+				A3C323B212935B09002A27A6 /* CoreAudio.framework in Frameworks */,
+				A3C323B412935B09002A27A6 /* CoreServices.framework in Frameworks */,
+				A3C3252A1293687A002A27A6 /* libmad.a in Frameworks */,
+				A3C3252C12936884002A27A6 /* libportaudio.a in Frameworks */,
+				A3C3253112936892002A27A6 /* libogg.a in Frameworks */,
+				A3C3253212936892002A27A6 /* libvorbis.a in Frameworks */,
+				A3C3253312936892002A27A6 /* libvorbisenc.a in Frameworks */,
+				A3C3253412936892002A27A6 /* libvorbisfile.a in Frameworks */,
+				A3C32536129368B9002A27A6 /* libFLAC.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +97,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A3C3234C129351A4002A27A6 /* squeezeslave */ = {
+			isa = PBXGroup;
+			children = (
+				A3C32535129368B9002A27A6 /* libFLAC.a */,
+				A3C3252D12936892002A27A6 /* libogg.a */,
+				A3C3252E12936892002A27A6 /* libvorbis.a */,
+				A3C3252F12936892002A27A6 /* libvorbisenc.a */,
+				A3C3253012936892002A27A6 /* libvorbisfile.a */,
+				A3C3252B12936884002A27A6 /* libportaudio.a */,
+				A3C325291293687A002A27A6 /* libmad.a */,
+				A3C32381129359A5002A27A6 /* libslimproto.a */,
+			);
+			name = squeezeslave;
+			sourceTree = "<group>";
+		};
 		A3C9D40F129347C800E2DF54 = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +137,7 @@
 		A3C9D417129347C800E2DF54 /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				A3C3234C129351A4002A27A6 /* squeezeslave */,
 				A3C9D424129347C800E2DF54 /* SqueezeSlaveMenu-Prefix.pch */,
 				A3C9D428129347C800E2DF54 /* SqueezeSlaveMenu-main.m */,
 				A3C9D43C129347C800E2DF54 /* SqueezeSlaveMenuTests-Prefix.pch */,
@@ -109,6 +161,10 @@
 		A3C9D419129347C800E2DF54 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A3C323AD12935B09002A27A6 /* AudioToolbox.framework */,
+				A3C323AF12935B09002A27A6 /* AudioUnit.framework */,
+				A3C323B112935B09002A27A6 /* CoreAudio.framework */,
+				A3C323B312935B09002A27A6 /* CoreServices.framework */,
 				A3C9D421129347C800E2DF54 /* Cocoa.framework */,
 			);
 			name = Frameworks;
@@ -302,6 +358,11 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"External/squeezeslave/lib/libmad/**",
+					"External/squeezeslave/lib/portaudio/**",
+					"External/squeezeslave/lib/portmixer/**",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
@@ -317,6 +378,11 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"External/squeezeslave/lib/libmad/**",
+					"External/squeezeslave/lib/portaudio/**",
+					"External/squeezeslave/lib/portmixer/**",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PREBINDING = NO;
 				SDKROOT = macosx;
@@ -344,8 +410,31 @@
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SqueezeSlaveMenu-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				HEADER_SEARCH_PATHS = (
+					External/squeezeslave/lib/libportaudio/osxintel/include,
+					"External/squeezeslave/lib/portmixer/**",
+					External/squeezeslave/lib/libmad/osxintel/include,
+					External/squeezeslave/lib/flac/osxintel/include,
+					External/squeezeslave/lib/vorbis/osxintel/include,
+					External/squeezeslave/src,
+				);
 				INFOPLIST_FILE = "SqueezeSlaveMenu-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/External/squeezeslave/lib\"",
+					"\"$(SRCROOT)/External/squeezeslave/lib/libmad/osxintel/lib\"",
+					"\"$(SRCROOT)/External/squeezeslave/lib/libportaudio/osxintel/lib\"",
+					"\"$(SRCROOT)/External/squeezeslave/lib/vorbis/osxintel/lib\"",
+					"\"$(SRCROOT)/External/squeezeslave/lib/flac/osxintel/lib\"",
+					"\"$(SRCROOT)/External/squeezeslave/lib/lirc/osxintel/lib\"",
+				);
+				OTHER_CFLAGS = (
+					"-DSLIMPROTO_DEBUG",
+					"-DPORTAUDIO_DEV",
+				);
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -360,8 +449,31 @@
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SqueezeSlaveMenu-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				HEADER_SEARCH_PATHS = (
+					External/squeezeslave/lib/libportaudio/osxintel/include,
+					"External/squeezeslave/lib/portmixer/**",
+					External/squeezeslave/lib/libmad/osxintel/include,
+					External/squeezeslave/lib/flac/osxintel/include,
+					External/squeezeslave/lib/vorbis/osxintel/include,
+					External/squeezeslave/src,
+				);
 				INFOPLIST_FILE = "SqueezeSlaveMenu-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/External/squeezeslave/lib\"",
+					"\"$(SRCROOT)/External/squeezeslave/lib/libmad/osxintel/lib\"",
+					"\"$(SRCROOT)/External/squeezeslave/lib/libportaudio/osxintel/lib\"",
+					"\"$(SRCROOT)/External/squeezeslave/lib/vorbis/osxintel/lib\"",
+					"\"$(SRCROOT)/External/squeezeslave/lib/flac/osxintel/lib\"",
+					"\"$(SRCROOT)/External/squeezeslave/lib/lirc/osxintel/lib\"",
+				);
+				OTHER_CFLAGS = (
+					"-DSLIMPROTO_DEBUG",
+					"-DPORTAUDIO_DEV",
+				);
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

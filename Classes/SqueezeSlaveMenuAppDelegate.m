@@ -20,9 +20,12 @@
   
   NSError *error = nil;
   
-  if(![squeezeslave connect:&error]) {
+  if([squeezeslave connect:&error]) {
+    [self.statusLabel setStringValue:@"Connected"];
+  } else {
     [self.statusLabel setStringValue:[NSString stringWithFormat:@"Connection failed, %@", [error localizedDescription]]];
   }
+
 }
 
 @end
