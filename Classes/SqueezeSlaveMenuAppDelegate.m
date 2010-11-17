@@ -14,10 +14,13 @@
 @synthesize window;
 @synthesize statusLabel;
 @synthesize connectButton;
+@synthesize availableDevices;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification 
 {
-  squeezeslave = [[SSSlave alloc] initWithHost:@"mac-mini.local" audioDeviceIndex:2];
+  self.availableDevices = [SSSlave availableOutputDevices:nil];
+  
+  squeezeslave = [[SSSlave alloc] initWithHost:@"mac-mini.local" outputDevice:[self.availableDevices objectAtIndex:0]];
   squeezeslave.delegate = self;
 }
 

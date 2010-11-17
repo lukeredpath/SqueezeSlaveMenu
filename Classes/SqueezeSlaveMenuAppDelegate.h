@@ -14,11 +14,13 @@
   NSTextField *statusLabel;
   NSButton *connectButton;
   SSSlave *squeezeslave;
+  NSArray *availableDevices;
 }
 
 @property (assign) IBOutlet NSWindow *window;
 @property (retain) IBOutlet NSTextField *statusLabel;
 @property (retain) IBOutlet NSButton *connectButton;
+@property (retain) NSArray *availableDevices;
 
 - (IBAction)toggleConnect:(id)sender;
 @end

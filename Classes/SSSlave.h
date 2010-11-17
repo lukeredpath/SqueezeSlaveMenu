@@ -17,6 +17,8 @@
 
 extern NSString *const SSSlaveErrorDomain;
 
+@class SSSlaveOutputDevice;
+
 typedef enum {
   SSSlaveUnknownError = 0,
   SSSlaveInitializationError,
@@ -30,16 +32,20 @@ typedef enum {
   slimaudio_t slimaudio;
   NSString *macAddress;
   NSString *serverHost;
-  NSInteger audioDeviceIndex;
+  SSSlaveOutputDevice *outputDevice;
   id<SSSlaveDelegate> delegate;
 }
 @property (nonatomic, readonly, getter=isConnected) BOOL connected;
 @property (nonatomic, copy) NSString *macAddress;
 @property (nonatomic, assign) id<SSSlaveDelegate> delegate;
 
-- (id)initWithHost:(NSString *)host audioDeviceIndex:(NSInteger)deviceIndex;
+- (id)initWithHost:(NSString *)host outputDevice:(SSSlaveOutputDevice *)device;
 - (BOOL)connect:(NSError **)error;
 - (void)disconnect;
 @end
 
 int connect_callback(slimproto_t *p, bool isConnected, void *user_data);
+
+@interface SSSlave (AudioDevices)
++ (NSArray *)availableOutputDevices:(NSError **)error;
+@end

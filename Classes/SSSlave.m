@@ -7,6 +7,7 @@
 //
 
 #import "SSSlave.h"
+#import "SSSlaveOutputDevice.h"
 
 bool modify_latency = false;
 unsigned int user_latency = 0L;
@@ -27,13 +28,13 @@ NSString *const SSSlaveErrorDomain = @"SSSlaveErrorDomain";
 @synthesize macAddress;
 @synthesize delegate;
 
-- (id)initWithHost:(NSString *)host audioDeviceIndex:(NSInteger)deviceIndex;
+- (id)initWithHost:(NSString *)host outputDevice:(SSSlaveOutputDevice *)device;
 {
   if ((self = [super init])) {
     connected = NO;
     macAddress = @"000000000001";
     serverHost = [host copy];
-    audioDeviceIndex = deviceIndex;
+    outputDevice = [device retain];
   }
   
   return self;
@@ -42,10 +43,12 @@ NSString *const SSSlaveErrorDomain = @"SSSlaveErrorDomain";
 - (void)dealloc 
 {  
   [self disconnect];
+  [outputDevice release];
   [serverHost release];
   [macAddress release];
   [super dealloc];
 }
+
 
 #pragma mark -
 #pragma mark Connecting
@@ -67,7 +70,7 @@ NSString *const SSSlaveErrorDomain = @"SSSlaveErrorDomain";
     return NO;
   }
   
-  if (slimaudio_init(&slimaudio, &slimproto, (PaDeviceIndex)audioDeviceIndex, output_change) < 0) {
+  if (slimaudio_init(&slimaudio, &slimproto, (PaDeviceIndex)outputDevice.index, output_change) < 0) {
     *error = [NSError errorWithDomain:SSSlaveErrorDomain code:SSSlaveInitializationError userInfo:
         [NSDictionary dictionaryWithObject:@"Failed to initialize slimaudio." forKey:@"debugInfo"]];
     return NO;
@@ -145,5 +148,84 @@ int connect_callback(slimproto_t *p, bool isConnected, void *user_data) {
   [(SSSlave *)user_data handleSlimprotoConnect:isConnected];
   return 0;
 }
+
+#pragma mark -
+
+@implementation SSSlave (AudioDevices)
+
++ (NSArray *)availableOutputDevices:(NSError **)error;
+{
+    int i;
+    int err;
+  
+    bool bValidDev = false;
+    const PaDeviceInfo *pdi;
+    const PaHostApiInfo *info;
+    PaDeviceIndex DefaultDevice;
+    PaDeviceIndex DeviceCount;
+    
+    err = Pa_Initialize();
+    if (err != paNoError) {
+      NSLog(@"PortAudio error4: %s Could not open any audio devices.\n", Pa_GetErrorText(err));
+    }
+    DeviceCount = Pa_GetDeviceCount();
+    
+    if ( DeviceCount < 0 )
+    {
+      NSLog(@"PortAudio error5: %s\n", Pa_GetErrorText(DeviceCount) );
+    }
+    DefaultDevice = PA_DEFAULT_DEVICE;
+    
+    if ( DefaultDevice >= DeviceCount )
+    {
+      DefaultDevice = Pa_GetDefaultOutputDevice();
+    }
+    
+    if ( DefaultDevice == paNoDevice )
+    {
+      NSLog(@"PortAudio error7: No output devices found.\n" );
+    }
+  
+  NSMutableArray *devices = [NSMutableArray arrayWithCapacity:DeviceCount];
+
+    for ( i = 0; i < DeviceCount; i++ )
+    {
+      pdi = Pa_GetDeviceInfo( i );
+      if ( pdi->name == NULL )
+      {
+        NSLog(@"PortAudio error6: GetDeviceInfo failed.\n" );
+        continue;
+      }
+
+      info = Pa_GetHostApiInfo ( pdi->hostApi );
+      if ( info->name == NULL )
+      {
+        NSLog(@"PortAudio error8: GetHostApiInfo failed.\n" );
+        continue;
+      }
+
+      if ( pdi->maxOutputChannels >= 2 )
+      {
+        if ( i == DefaultDevice )
+        {
+          bValidDev = true;
+        }
+        SSSlaveOutputDevice *device = [[SSSlaveOutputDevice alloc] initWithIndex:i 
+           description:[NSString stringWithCString:pdi->name encoding:NSUTF8StringEncoding]];
+        [devices addObject:device];
+        [device release];
+      }
+    }
+    
+    Pa_Terminate();
+    
+    if ( !bValidDev )
+      DefaultDevice = paNoDevice;
+    
+  return devices;
+}
+
+@end
+
 
 
