@@ -31,15 +31,28 @@
   [connectButton setEnabled:NO];
   
   if (squeezeslave.isConnected) {
-    [squeezeslave disconnect];
-    
+    [self performSelectorInBackground:@selector(disconnect) withObject:nil];
   } else {
-    NSError *error = nil;
-    if(![squeezeslave connect:&error]) {
-      [self.statusLabel setStringValue:[NSString stringWithFormat:@"Connection failed, %@", [error localizedDescription]]];
-      [connectButton setEnabled:YES];
-    }
+    [self performSelectorInBackground:@selector(connect) withObject:nil];
   }
+}
+
+- (void)connect
+{
+  NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+  NSError *error = nil;
+  if(![squeezeslave connect:&error]) {
+    [self.statusLabel setStringValue:[NSString stringWithFormat:@"Connection failed, %@", [error localizedDescription]]];
+    [connectButton setEnabled:YES];
+  }
+  [pool release];
+}
+
+- (void)disconnect
+{
+  NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+  [squeezeslave disconnect];
+  [pool release];
 }
 
 #pragma mark -
