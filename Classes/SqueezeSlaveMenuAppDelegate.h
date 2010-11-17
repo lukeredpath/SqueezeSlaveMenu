@@ -9,13 +9,25 @@
 #import <Cocoa/Cocoa.h>
 #import "SSSlaveDelegate.h"
 
+@class SSSlave, SSSlaveOutputDevice;
+
+typedef enum {
+  SSMenuStatusMenuItem = 1001,
+  SSMenuDevicesStartSeparator,
+  SSMenuDevicesEndSeparator
+} SSMenuStatusItems;
+
 @interface SqueezeSlaveMenuAppDelegate : NSObject <NSApplicationDelegate, SSSlaveDelegate> {
   SSSlave *squeezeslave;
+  SSSlaveOutputDevice *currentOutputDevice;
   NSArray *availableDevices;
   NSStatusItem *statusItem;
 }
 @property (retain) IBOutlet NSMenu *statusBarMenu;
 @property (retain) NSArray *availableDevices;
+@property (nonatomic, retain) SSSlaveOutputDevice *currentOutputDevice;
 
 - (IBAction)toggleConnect:(id)sender;
+- (void)updateOutputDevices;
+- (void)updateStatus:(NSString *)status;
 @end
