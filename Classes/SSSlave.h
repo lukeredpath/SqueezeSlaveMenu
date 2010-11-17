@@ -11,6 +11,10 @@
 #import <slimaudio/slimaudio.h>
 #import <slimproto/slimproto.h>
 
+#define FIRMWARE_VERSION	2
+#define SLIMPROTOCOL_PORT	3483
+#define PLAYER_TYPE	8
+
 extern NSString *const SSSlaveErrorDomain;
 
 typedef enum {
@@ -46,3 +50,4 @@ typedef enum {
 - (void)disconnect;
 @end
 
+int connect_callback(slimproto_t *p, bool isConnected, void *user_data);

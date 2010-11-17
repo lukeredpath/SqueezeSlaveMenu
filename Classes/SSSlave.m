@@ -8,32 +8,16 @@
 
 #import "SSSlave.h"
 
-@interface SSSlave ()
-- (void)handleSlimprotoConnect:(bool)isConnected;
-@end
-
-#define RETRY_DEFAULT	5
-#define LINE_COUNT	2
-#define OPTLEN		64
-#define FIRMWARE_VERSION	2
-#define SLIMPROTOCOL_PORT	3483
-#define PLAYER_TYPE	8
-
 bool modify_latency = false;
 unsigned int user_latency = 0L;
 
 bool output_change = false;
 
-const char *version = "0.9";
-const int revision = 208;
-static int port = SLIMPROTOCOL_PORT;
-static int firmware = FIRMWARE_VERSION;
-static int player_type = PLAYER_TYPE;
+#pragma mark -
 
-int connect_callback(slimproto_t *p, bool isConnected, void *user_data) {
-  [(SSSlave *)user_data handleSlimprotoConnect:isConnected];
-  return 0;
-}
+@interface SSSlave ()
+- (void)handleSlimprotoConnect:(bool)isConnected;
+@end
 
 NSString *const SSSlaveErrorDomain = @"SSSlaveErrorDomain";
 
@@ -62,6 +46,9 @@ NSString *const SSSlaveErrorDomain = @"SSSlaveErrorDomain";
   [macAddress release];
   [super dealloc];
 }
+
+#pragma mark -
+#pragma mark Connecting
 
 - (BOOL)connect:(NSError **)error;
 {
@@ -100,7 +87,7 @@ NSString *const SSSlaveErrorDomain = @"SSSlaveErrorDomain";
     return NO;
   }
   
-  if (slimproto_connect(&slimproto, [serverHost cStringUsingEncoding:NSUTF8StringEncoding], port) < 0) {
+  if (slimproto_connect(&slimproto, [serverHost cStringUsingEncoding:NSUTF8StringEncoding], SLIMPROTOCOL_PORT) < 0) {
     *error = [NSError errorWithDomain:SSSlaveErrorDomain code:SSSlaveConnectionError userInfo:
         [NSDictionary dictionaryWithObject:@"Failed to connect to server." forKey:@"debugInfo"]];
     return NO;
@@ -125,7 +112,7 @@ NSString *const SSSlaveErrorDomain = @"SSSlaveErrorDomain";
 }
 
 #pragma mark -
-#pragma mark Private slimproto handlers
+#pragma mark Private
 
 - (void)handleSlimprotoConnect:(bool)isConnected
 {
@@ -134,7 +121,7 @@ NSString *const SSSlaveErrorDomain = @"SSSlaveErrorDomain";
   connected = (BOOL)isConnected;
   
   if (connected) {
-    if (slimproto_helo(&slimproto, player_type, firmware, [macAddress cStringUsingEncoding:NSUTF8StringEncoding], 0, 0) < 0) {
+    if (slimproto_helo(&slimproto, PLAYER_TYPE, FIRMWARE_VERSION, [macAddress cStringUsingEncoding:NSUTF8StringEncoding], 0, 0) < 0) {
       NSLog(@"Could not send helo to Squeezebox Server.");
       [self disconnect];
     } else {
@@ -150,3 +137,13 @@ NSString *const SSSlaveErrorDomain = @"SSSlaveErrorDomain";
 }
 
 @end
+
+#pragma mark -
+#pragma mark Slimproto Callbacks
+
+int connect_callback(slimproto_t *p, bool isConnected, void *user_data) {
+  [(SSSlave *)user_data handleSlimprotoConnect:isConnected];
+  return 0;
+}
+
+
