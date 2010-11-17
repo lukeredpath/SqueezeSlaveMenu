@@ -10,16 +10,11 @@
 #import "SSSlaveDelegate.h"
 
 @interface SqueezeSlaveMenuAppDelegate : NSObject <NSApplicationDelegate, SSSlaveDelegate> {
-  NSWindow *window;
-  NSTextField *statusLabel;
-  NSButton *connectButton;
   SSSlave *squeezeslave;
   NSArray *availableDevices;
+  NSStatusItem *statusItem;
 }
-
-@property (assign) IBOutlet NSWindow *window;
-@property (retain) IBOutlet NSTextField *statusLabel;
-@property (retain) IBOutlet NSButton *connectButton;
+@property (retain) IBOutlet NSMenu *statusBarMenu;
 @property (retain) NSArray *availableDevices;
 
 - (IBAction)toggleConnect:(id)sender;

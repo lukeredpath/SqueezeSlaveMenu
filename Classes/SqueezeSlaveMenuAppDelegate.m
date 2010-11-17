@@ -11,10 +11,16 @@
 
 @implementation SqueezeSlaveMenuAppDelegate
 
-@synthesize window;
-@synthesize statusLabel;
-@synthesize connectButton;
 @synthesize availableDevices;
+@synthesize statusBarMenu;
+
+- (void)awakeFromNib
+{
+  statusItem = [[[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength] retain];
+  [statusItem setMenu:statusBarMenu];
+  [statusItem setTitle:@"SS"];
+  [statusItem setHighlightMode:YES];
+}
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification 
 {
@@ -31,8 +37,6 @@
 
 - (IBAction)toggleConnect:(id)sender;
 {
-  [connectButton setEnabled:NO];
-  
   if (squeezeslave.isConnected) {
     [self performSelectorInBackground:@selector(disconnect) withObject:nil];
   } else {
@@ -45,8 +49,7 @@
   NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
   NSError *error = nil;
   if(![squeezeslave connect:&error]) {
-    [self.statusLabel setStringValue:[NSString stringWithFormat:@"Connection failed, %@", [error localizedDescription]]];
-    [connectButton setEnabled:YES];
+    
   }
   [pool release];
 }
@@ -63,16 +66,12 @@
 
 - (void)slaveDidConnect:(SSSlave *)slave
 {
-  [self.statusLabel setStringValue:@"Connected"];
-  [connectButton setTitle:@"Disconnect"];
-  [connectButton setEnabled:YES];
+
 }
 
 - (void)slaveDidDisconnect:(SSSlave *)slave
 {
-  [self.statusLabel setStringValue:@"Disconnected"];
-  [connectButton setTitle:@"Connect"];
-  [connectButton setEnabled:YES];
+
 }
 
 @end
