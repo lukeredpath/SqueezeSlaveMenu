@@ -50,6 +50,23 @@ NSString *const SSSlaveErrorDomain = @"SSSlaveErrorDomain";
   [super dealloc];
 }
 
+int parse_macaddress(char *macaddress, NSString *string) {
+  char *ptr;
+  int i;
+  
+  const char *str = [string cStringUsingEncoding:NSASCIIStringEncoding];
+  
+  for (i=0; i<6; i++) {   
+    macaddress[i] = (char) strtol (str, &ptr, 16);
+    if (i == 5 && *ptr == '\0')
+      return 0;
+    if (*ptr != ':')
+      return -1;
+    
+    str = ptr+1;
+  } 
+  return -1;
+}
 
 #pragma mark -
 #pragma mark Connecting
@@ -127,7 +144,9 @@ NSString *const SSSlaveErrorDomain = @"SSSlaveErrorDomain";
   connected = (BOOL)isConnected;
   
   if (connected) {
-    if (slimproto_helo(&slimproto, PLAYER_TYPE, FIRMWARE_VERSION, [macAddress cStringUsingEncoding:NSUTF8StringEncoding], 0, 0) < 0) {
+    char mac[6] = { 0, 0, 0, 0, 0, 1 };
+    parse_macaddress(mac, macAddress);
+    if (slimproto_helo(&slimproto, PLAYER_TYPE, FIRMWARE_VERSION, mac, 0, 0) < 0) {
       DLog(@"Error: could not send helo to Squeezebox Server.");
       [self disconnect];
     } else {
