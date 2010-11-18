@@ -82,7 +82,9 @@ NSString *const SSClientMACDefaultKey  = @"ClientMAC";
     SSSlaveOutputDevice *device = [self.availableDevices objectAtIndex:i];
     NSMenuItem *menuItem = [[NSMenuItem alloc] initWithTitle:[device description] action:@selector(outputDeviceSelected:) keyEquivalent:@""];
     [menuItem setTag:kAudioDeviceMenuTagBase+i];
-    [menuItem setEnabled:YES];
+    if (squeezeslave.isConnected) {
+      [menuItem setEnabled:NO];
+    }
     if (device == self.currentOutputDevice) {
       [menuItem setState:1];
     }
@@ -124,6 +126,11 @@ NSString *const SSClientMACDefaultKey  = @"ClientMAC";
   
   [self updateStatus:@"Connecting..."];
   
+  for (int i = 0; i < self.availableDevices.count; i++) {
+    NSMenuItem *item = [self.statusBarMenu itemWithTag:kAudioDeviceMenuTagBase+i];
+    [item setEnabled:NO];
+  }
+  
   if(![squeezeslave connect:&error]) {
     [[self.statusBarMenu itemWithTag:SSMenuConnectItem] setTitle:@"Connect To Server"];
     [self updateStatus:@"Disconnected"];
@@ -161,6 +168,11 @@ NSString *const SSClientMACDefaultKey  = @"ClientMAC";
 {
   [self updateStatus:@"Disconnected"];
   [squeezeslave release], squeezeslave = nil;
+  
+  for (int i = 0; i < self.availableDevices.count; i++) {
+    NSMenuItem *item = [self.statusBarMenu itemWithTag:kAudioDeviceMenuTagBase+i];
+    [item setEnabled:YES];
+  }
 }
 
 @end
