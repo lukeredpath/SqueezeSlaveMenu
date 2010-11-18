@@ -61,7 +61,8 @@ NSString *const SSClientMACDefaultKey  = @"ClientMAC";
   if (preferencesWindowController == nil) {
     preferencesWindowController = [[NSWindowController alloc] initWithWindowNibName:@"Preferences"];
   }
-  [[preferencesWindowController window] makeKeyAndOrderFront:nil];
+  [NSApp activateIgnoringOtherApps:YES];
+  [[preferencesWindowController window] makeKeyAndOrderFront:sender];
 }
 
 - (void)updateOutputDevices
