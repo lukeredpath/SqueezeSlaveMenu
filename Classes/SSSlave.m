@@ -41,7 +41,6 @@ NSString *const SSSlaveErrorDomain = @"SSSlaveErrorDomain";
 - (void)dealloc 
 {  
   [self disconnect];
-  [macAddress release];
   [outputDevice release];
   [serverHost release];
   [macAddress release];
@@ -143,7 +142,9 @@ int parse_macaddress(char *macaddress, NSString *string) {
   
   if (connected) {
     char mac[6] = { 0, 0, 0, 0, 0, 1 };
-    parse_macaddress(mac, macAddress);
+    if (macAddress) {
+      parse_macaddress(mac, macAddress);
+    }
     if (slimproto_helo(&slimproto, PLAYER_TYPE, FIRMWARE_VERSION, mac, 0, 0) < 0) {
       DLog(@"Error: could not send helo to Squeezebox Server.");
       [self disconnect];
