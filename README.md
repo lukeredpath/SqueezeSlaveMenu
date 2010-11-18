@@ -1,4 +1,5 @@
 # SqueezeSlaveMenu for OSX
+
 SqueezeSlaveMenu is a small menu-bar applet for controlling [SqueezeSlave](http://wiki.slimdevices.com/index.php/SqueezeSlave), a command-line tool that can be used to turn your Windows, Mac or Linux computer into a Squeezebox device.
 
 ## Compiling on Snow Leopard
@@ -21,4 +22,4 @@ You should only have to do this once. You should now be able to open the Xcode p
 
 ## License
 
-TBC, probably MIT as long as it is compatible with the licensing terms of the squeezeslave code that this app links to (which is licensed under the GPLv2).
+This application is licensed under the same terms as the original squeezeslave library, GPLv2.
