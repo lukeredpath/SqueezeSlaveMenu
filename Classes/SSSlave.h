@@ -39,7 +39,7 @@ typedef enum {
 @property (nonatomic, copy) NSString *macAddress;
 @property (nonatomic, assign) id<SSSlaveDelegate> delegate;
 
-- (id)initWithHost:(NSString *)host outputDevice:(SSSlaveOutputDevice *)device;
+- (id)initWithHost:(NSString *)host MACAddress:(NSString *)MAC outputDevice:(SSSlaveOutputDevice *)device;
 - (BOOL)connect:(NSError **)error;
 - (void)disconnect;
 @end

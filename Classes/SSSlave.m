@@ -28,11 +28,11 @@ NSString *const SSSlaveErrorDomain = @"SSSlaveErrorDomain";
 @synthesize macAddress;
 @synthesize delegate;
 
-- (id)initWithHost:(NSString *)host outputDevice:(SSSlaveOutputDevice *)device;
+- (id)initWithHost:(NSString *)host MACAddress:(NSString *)MAC outputDevice:(SSSlaveOutputDevice *)device;
 {
   if ((self = [super init])) {
     connected = NO;
-    macAddress = @"000000000001";
+    macAddress = [MAC copy];
     serverHost = [host copy];
     outputDevice = [device retain];
   }
@@ -43,6 +43,7 @@ NSString *const SSSlaveErrorDomain = @"SSSlaveErrorDomain";
 - (void)dealloc 
 {  
   [self disconnect];
+  [macAddress release];
   [outputDevice release];
   [serverHost release];
   [macAddress release];
@@ -56,6 +57,8 @@ NSString *const SSSlaveErrorDomain = @"SSSlaveErrorDomain";
 - (BOOL)connect:(NSError **)error;
 {
   [self disconnect];
+  
+  DLog(@"Connecting to %@:%d...", serverHost, SLIMPROTOCOL_PORT);
   
   unsigned int output_predelay = 0;
   unsigned int output_predelay_amplitude = 0;
@@ -125,14 +128,16 @@ NSString *const SSSlaveErrorDomain = @"SSSlaveErrorDomain";
   
   if (connected) {
     if (slimproto_helo(&slimproto, PLAYER_TYPE, FIRMWARE_VERSION, [macAddress cStringUsingEncoding:NSUTF8StringEncoding], 0, 0) < 0) {
-      NSLog(@"Could not send helo to Squeezebox Server.");
+      DLog(@"Error: could not send helo to Squeezebox Server.");
       [self disconnect];
     } else {
+      DLog(@"Connected as %@.", macAddress);
       if ([self.delegate respondsToSelector:@selector(slaveDidConnect:)]) {
         [(id)self.delegate performSelectorOnMainThread:@selector(slaveDidConnect:) withObject:self waitUntilDone:NO];
       }
     }
   } else {
+    DLog(@"Disconnected.");
     [self disconnect];
   }
   
@@ -166,13 +171,13 @@ int connect_callback(slimproto_t *p, bool isConnected, void *user_data) {
     
     err = Pa_Initialize();
     if (err != paNoError) {
-      NSLog(@"PortAudio error4: %s Could not open any audio devices.\n", Pa_GetErrorText(err));
+      DLog(@"PortAudio error4: %s Could not open any audio devices.\n", Pa_GetErrorText(err));
     }
     DeviceCount = Pa_GetDeviceCount();
     
     if ( DeviceCount < 0 )
     {
-      NSLog(@"PortAudio error5: %s\n", Pa_GetErrorText(DeviceCount) );
+      DLog(@"PortAudio error5: %s\n", Pa_GetErrorText(DeviceCount) );
     }
     DefaultDevice = PA_DEFAULT_DEVICE;
     
@@ -183,7 +188,7 @@ int connect_callback(slimproto_t *p, bool isConnected, void *user_data) {
     
     if ( DefaultDevice == paNoDevice )
     {
-      NSLog(@"PortAudio error7: No output devices found.\n" );
+      DLog(@"PortAudio error7: No output devices found.\n" );
     }
   
   NSMutableArray *devices = [NSMutableArray arrayWithCapacity:DeviceCount];
@@ -193,14 +198,14 @@ int connect_callback(slimproto_t *p, bool isConnected, void *user_data) {
       pdi = Pa_GetDeviceInfo( i );
       if ( pdi->name == NULL )
       {
-        NSLog(@"PortAudio error6: GetDeviceInfo failed.\n" );
+        DLog(@"PortAudio error6: GetDeviceInfo failed.\n" );
         continue;
       }
 
       info = Pa_GetHostApiInfo ( pdi->hostApi );
       if ( info->name == NULL )
       {
-        NSLog(@"PortAudio error8: GetHostApiInfo failed.\n" );
+        DLog(@"PortAudio error8: GetHostApiInfo failed.\n" );
         continue;
       }
 

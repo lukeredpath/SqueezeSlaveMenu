@@ -20,6 +20,7 @@
 		A3C3253412936892002A27A6 /* libvorbisfile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3C3253012936892002A27A6 /* libvorbisfile.a */; };
 		A3C32536129368B9002A27A6 /* libFLAC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3C32535129368B9002A27A6 /* libFLAC.a */; };
 		A3C3278E129448B7002A27A6 /* SSSlaveOutputDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C3278D129448B7002A27A6 /* SSSlaveOutputDevice.m */; };
+		A3C328D91294AA1A002A27A6 /* DefaultSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3C328D81294AA1A002A27A6 /* DefaultSettings.plist */; };
 		A3C9D422129347C800E2DF54 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3C9D421129347C800E2DF54 /* Cocoa.framework */; };
 		A3C9D427129347C800E2DF54 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A3C9D425129347C800E2DF54 /* InfoPlist.strings */; };
 		A3C9D429129347C800E2DF54 /* SqueezeSlaveMenu-main.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C9D428129347C800E2DF54 /* SqueezeSlaveMenu-main.m */; };
@@ -49,6 +50,7 @@
 		A3C326F4129377C0002A27A6 /* SSSlaveDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSSlaveDelegate.h; sourceTree = "<group>"; };
 		A3C3278C129448B7002A27A6 /* SSSlaveOutputDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSSlaveOutputDevice.h; sourceTree = "<group>"; };
 		A3C3278D129448B7002A27A6 /* SSSlaveOutputDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSSlaveOutputDevice.m; sourceTree = "<group>"; };
+		A3C328D81294AA1A002A27A6 /* DefaultSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DefaultSettings.plist; sourceTree = "<group>"; };
 		A3C9D41E129347C800E2DF54 /* SqueezeSlaveMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SqueezeSlaveMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3C9D421129347C800E2DF54 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		A3C9D423129347C800E2DF54 /* SqueezeSlaveMenu-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SqueezeSlaveMenu-Info.plist"; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				A3C9D42D129347C800E2DF54 /* Credits.rtf */,
 				A3C9D43B129347C800E2DF54 /* SqueezeSlaveMenuTests-Info.plist */,
 				A3C9D43D129347C800E2DF54 /* InfoPlist.strings */,
+				A3C328D81294AA1A002A27A6 /* DefaultSettings.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				A3C9D427129347C800E2DF54 /* InfoPlist.strings in Resources */,
 				A3C9D42C129347C800E2DF54 /* MainMenu.xib in Resources */,
 				A3C9D42F129347C800E2DF54 /* Credits.rtf in Resources */,
+				A3C328D91294AA1A002A27A6 /* DefaultSettings.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,6 +445,7 @@
 				OTHER_CFLAGS = (
 					"-DSLIMPROTO_DEBUG",
 					"-DPORTAUDIO_DEV",
+					"-DDEBUG",
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -477,10 +482,7 @@
 					"\"$(SRCROOT)/External/squeezeslave/lib/flac/osxintel/lib\"",
 					"\"$(SRCROOT)/External/squeezeslave/lib/lirc/osxintel/lib\"",
 				);
-				OTHER_CFLAGS = (
-					"-DSLIMPROTO_DEBUG",
-					"-DPORTAUDIO_DEV",
-				);
+				OTHER_CFLAGS = "-DPORTAUDIO_DEV";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

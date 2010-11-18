@@ -11,11 +11,21 @@
 
 #define kAudioDeviceMenuTagBase 2000
 
+NSString *const SSServerHostDefaultKey = @"ServerHost";
+NSString *const SSClientMACDefaultKey  = @"ClientMAC";
+
 @implementation SqueezeSlaveMenuAppDelegate
 
 @synthesize availableDevices;
 @synthesize currentOutputDevice;
 @synthesize statusBarMenu;
+
++ (void)initialize
+{
+  NSString *defaultsPath = [[NSBundle mainBundle] pathForResource:@"DefaultSettings" ofType:@"plist"];
+  NSDictionary *defaults = [NSDictionary dictionaryWithContentsOfFile:defaultsPath];
+  [[NSUserDefaults standardUserDefaults] registerDefaults:defaults];
+}
 
 - (void)awakeFromNib
 {
@@ -95,7 +105,10 @@
   NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
   
   if (squeezeslave == nil) {
-    squeezeslave = [[SSSlave alloc] initWithHost:@"localhost" outputDevice:self.currentOutputDevice];
+    squeezeslave = [[SSSlave alloc] initWithHost:[[NSUserDefaults standardUserDefaults] stringForKey:SSServerHostDefaultKey] 
+                                      MACAddress:[[NSUserDefaults standardUserDefaults] stringForKey:SSClientMACDefaultKey] 
+                                    outputDevice:self.currentOutputDevice];
+    
     squeezeslave.delegate = self;
   }
   NSError *error = nil;

@@ -9,6 +9,9 @@
 #import <Cocoa/Cocoa.h>
 #import "SSSlaveDelegate.h"
 
+extern NSString *const SSServerHostDefaultKey;
+extern NSString *const SSClientMACDefaultKey;
+
 @class SSSlave, SSSlaveOutputDevice;
 
 typedef enum {
