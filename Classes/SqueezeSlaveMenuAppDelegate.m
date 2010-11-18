@@ -56,6 +56,14 @@ NSString *const SSClientMACDefaultKey  = @"ClientMAC";
   }
 }
 
+- (IBAction)showPreferencesWindow:(id)sender;
+{
+  if (preferencesWindowController == nil) {
+    preferencesWindowController = [[NSWindowController alloc] initWithWindowNibName:@"Preferences"];
+  }
+  [[preferencesWindowController window] makeKeyAndOrderFront:nil];
+}
+
 - (void)updateOutputDevices
 {
   self.availableDevices = [SSSlave availableOutputDevices:nil];

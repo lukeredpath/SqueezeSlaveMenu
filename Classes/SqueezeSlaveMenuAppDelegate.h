@@ -26,12 +26,14 @@ typedef enum {
   SSSlaveOutputDevice *currentOutputDevice;
   NSArray *availableDevices;
   NSStatusItem *statusItem;
+  NSWindowController *preferencesWindowController;
 }
 @property (retain) IBOutlet NSMenu *statusBarMenu;
 @property (retain) NSArray *availableDevices;
 @property (nonatomic, retain) SSSlaveOutputDevice *currentOutputDevice;
 
 - (IBAction)toggleConnect:(id)sender;
+- (IBAction)showPreferencesWindow:(id)sender;
 - (void)connect;
 - (void)disconnect;
 - (void)updateOutputDevices;
