@@ -12,8 +12,6 @@
 bool modify_latency = false;
 unsigned int user_latency = 0L;
 
-bool output_change = false;
-
 #pragma mark -
 
 @interface SSSlave ()
@@ -90,7 +88,7 @@ int parse_macaddress(char *macaddress, NSString *string) {
     return NO;
   }
   
-  if (slimaudio_init(&slimaudio, &slimproto, (PaDeviceIndex)outputDevice.index, output_change) < 0) {
+  if (slimaudio_init(&slimaudio, &slimproto, (PaDeviceIndex)outputDevice.index, true) < 0) {
     *error = [NSError errorWithDomain:SSSlaveErrorDomain code:SSSlaveInitializationError userInfo:
         [NSDictionary dictionaryWithObject:@"Failed to initialize slimaudio." forKey:@"debugInfo"]];
     return NO;
